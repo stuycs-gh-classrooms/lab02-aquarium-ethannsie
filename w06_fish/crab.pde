@@ -3,7 +3,7 @@ class crab extends Animal {
     crab() {
     super(mouseX, mouseY, 30, 30, 0, 0, 255, 2);
   }
-      void collide() {
+   void collide() {
    location.add(velocity.x*speed, velocity.y*speed);
    if (location.x < 0 || location.x+w1 > width) {
       velocity.x *= -1;

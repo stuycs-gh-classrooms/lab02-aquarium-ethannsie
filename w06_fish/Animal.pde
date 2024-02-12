@@ -44,13 +44,4 @@ class Animal extends Tank{
     }
   }
   
-    void collideCrab() {
-   location.add(velocity.x*speed, velocity.y*speed);
-   if (location.x < 0 || location.x+w1 > width) {
-      velocity.x *= -1;
-    }
-    if (location.y < 50 || location.y+h1 > height-100) { 
-      velocity.y *= -1;
-    }
   }
-}

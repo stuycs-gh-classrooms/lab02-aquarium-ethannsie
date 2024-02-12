@@ -19,12 +19,12 @@ class Tank {
   }
 
    void addFish(int x, int y) {
-    if (x >= tankX && x <= tankX + tankW && y >= tankY && y+20 <= tankH) {
+    if (x >= tankX && x + 40 <= tankX + tankW && y >= tankY && y+20 <= tankH) {
       animalList.add(new fish());
     }
   }
    void addCrab(int x, int y) {
-    if (x >= tankX && x <= tankX + tankW && y >= tankH && y+30 <= height) {
+    if (x >= tankX && x + 30 <= tankX + tankW && y >= tankH && y+30 <= height) {
       animalList.add(new crab());
     }
   }

@@ -26,9 +26,9 @@ void draw() {
 //}
 
 void keyPressed() {
-  if (key == 'c') {
+  if (key == '1') {
     t.addCrab(mouseX, mouseY);
-  } else if (key == 'f') {
+  } else if (key == '2') {
     t.addFish(mouseX, mouseY);
   }
   }
