@@ -1,7 +1,7 @@
 class fish extends Animal{
   
-  fish() {
-    super(mouseX, mouseY, 40, 20, 255, 0, 255, 10);
+  fish(int x, int y, int sx, int sy, int r, int g, int b, int speed) {
+    super(x, y, sx, sy, r, g, b, speed);
   }
   
     void collide() {

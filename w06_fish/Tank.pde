@@ -20,12 +20,17 @@ class Tank {
 
    void addFish(int x, int y) {
     if (x >= tankX && x + 40 <= tankX + tankW && y >= tankY && y+20 <= tankH) {
-      animalList.add(new fish());
+      animalList.add(new fish(mouseX, mouseY, 40, 20, 255, 0, 255, 10));
     }
   }
    void addCrab(int x, int y) {
     if (x >= tankX && x + 30 <= tankX + tankW && y >= tankH && y+30 <= height) {
-      animalList.add(new crab());
+      animalList.add(new crab(mouseX, mouseY, 30, 30, 0, 0, 255, 2));
+    }
+  }
+   void addStarfish(int x, int y) {
+    if (x >= tankX && x + 30 <= tankX + tankW && y >= tankH && y+30 <= height) {
+      animalList.add(new Starfish(mouseX, mouseY, 30, 30, 0, 0, 255, 2));
     }
   }
   void display() {

@@ -1,6 +1,7 @@
 class Animal extends Tank{
   PVector location;
   PVector velocity;
+  PImage img;
   int r;
   int g;
   int b;
@@ -29,9 +30,13 @@ class Animal extends Tank{
   }
   
   void display() {
+    if (img == null) {
     fill(inside);
     noStroke();
     rect(location.x, location.y, w1, h1);
+    } else {
+     image(img, location.x, location.y, 15, 15); 
+    }
   }
   
   void collide() {
@@ -39,7 +44,7 @@ class Animal extends Tank{
    if (location.x < 0 || location.x+w1 > width) {
       velocity.x *= -1;
     }
-    if (location.y < 50 || location.y+h1 > height-100) { 
+    if (location.y < 50 || location.y+h1 > height-h1) { 
       velocity.y *= -1;
     }
   }

@@ -30,6 +30,8 @@ void keyPressed() {
     t.addCrab(mouseX, mouseY);
   } else if (key == '2') {
     t.addFish(mouseX, mouseY);
+  } else if (key == '3') {
+    t.addStarfish(mouseX, mouseY); 
   }
   }
   
