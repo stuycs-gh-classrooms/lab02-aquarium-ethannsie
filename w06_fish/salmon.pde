@@ -1,10 +1,10 @@
-class fish extends Animal{
-  
-  fish(int x, int y, int sx, int sy, int r, int g, int b, int speed) {
+class Salmon extends Animal {
+
+  Salmon(int x, int y, int sx, int sy, int r, int g, int b, int speed) {
     super(x, y, sx, sy, r, g, b, speed);
   }
-  
-    void collide() {
+
+  void collide() {
    if (location.x < 0 || location.x+w1 > width) {
       velocity.x *= -1;
     }

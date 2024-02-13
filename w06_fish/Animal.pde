@@ -22,6 +22,14 @@ class Animal extends Tank{
     inside = color(r, g, b);
   }
   
+    Animal(int ax, int ay, int w1, int h1, int speed) {
+    location = new PVector(ax, ay);
+    velocity = PVector.random2D();
+    this.w1 = w1;
+    this.h1 = h1;
+    this.speed = speed;
+  }
+  
    Animal(int ax, int ay) {
     location = new PVector(ax, ay);
   }
@@ -35,7 +43,7 @@ class Animal extends Tank{
     noStroke();
     rect(location.x, location.y, w1, h1);
     } else {
-     image(img, location.x, location.y, 15, 15); 
+     image(img, location.x, location.y, w1, h1); 
     }
   }
   
@@ -47,6 +55,10 @@ class Animal extends Tank{
     if (location.y < 50 || location.y+h1 > height-h1) { 
       velocity.y *= -1;
     }
+  }
+  
+  void move() {
+    location.add(velocity.x*speed, velocity.y*speed);
   }
   
   }
