@@ -1,7 +1,6 @@
 class crab extends Animal {
-   
-    crab(int x, int y, int sx, int sy, int r, int g, int b, int speed) {
-    super(x, y, sx, sy, r, g, b, speed);
+   crab(int x, int y, int sx, int sy, int r, int g, int b, int speed, int health) {
+    super(x, y, sx, sy, r, g, b, speed, health);
   }
   
    void collide() {

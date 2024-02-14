@@ -9,8 +9,11 @@ class Animal extends Tank{
   int h1;
   color inside;
   int speed;
+  int hunger;
+  int timeAlive;
+
   
-  Animal(int ax, int ay, int w1, int h1, int r, int g, int b, int speed) {
+  Animal(int ax, int ay, int w1, int h1, int r, int g, int b, int speed, int hunger) {
     location = new PVector(ax, ay);
     velocity = PVector.random2D();
     this.w1 = w1;
@@ -20,14 +23,16 @@ class Animal extends Tank{
     this.g = g;
     this.b = b;
     inside = color(r, g, b);
+    this.hunger = hunger;
   }
   
-    Animal(int ax, int ay, int w1, int h1, int speed) {
+    Animal(int ax, int ay, int w1, int h1, int speed, int hunger) {
     location = new PVector(ax, ay);
     velocity = PVector.random2D();
     this.w1 = w1;
     this.h1 = h1;
     this.speed = speed;
+    this.hunger = hunger;
   }
   
    Animal(int ax, int ay) {
@@ -38,13 +43,18 @@ class Animal extends Tank{
   }
   
   void display() {
-    if (img == null) {
-    fill(inside);
-    noStroke();
-    rect(location.x, location.y, w1, h1);
-    } else {
-     image(img, location.x, location.y, w1, h1); 
-    }
+     if (this instanceof Starfish) {
+     image(imgStarfish, location.x, location.y, w1, h1); 
+     }
+     if (this instanceof Salmon) {
+      image(imgSalmon, location.x, location.y, w1, h1); 
+     }
+     if (this instanceof crab) {
+       image(imgCrab, location.x, location.y, w1, h1);
+     }
+     if (this instanceof fish) {
+       image(imgFish, location.x, location.y, w1, h1);
+     }
   }
   
   void collide() {
@@ -60,5 +70,6 @@ class Animal extends Tank{
   void move() {
     location.add(velocity.x*speed, velocity.y*speed);
   }
+  
   
   }
