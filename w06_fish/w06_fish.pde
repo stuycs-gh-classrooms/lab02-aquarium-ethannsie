@@ -38,9 +38,9 @@ void draw() {
   background(150);
   t.moveAnimals();
   t.moveFood();
-  t.aliveTimer();
-  t.drainHealth();
-  t.deathGeneral();
+  //t.aliveTimer();
+  //t.drainHealth();
+  //t.deathGeneral();
   t.display();
   try {
   if (t.animalList.get(0).hunger > 0) {

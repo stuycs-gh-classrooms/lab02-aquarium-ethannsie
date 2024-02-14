@@ -19,7 +19,7 @@ class Tank {
   
   Tank() {
   }
-
+    // put code more specifically into subclasses
    void addAnimal(int x, int y, int TYPE) {
      if (TYPE == FISH) {
        int w1 = 40;
@@ -37,7 +37,7 @@ class Tank {
        int w1 = 50;
        int h1 = 50;
       if (x >= tankX && x + w1 <= tankX + tankW && y >= tankH && y+h1 <= height) {
-      animalList.add(new Starfish(mouseX, mouseY, w1, h1, 3, 20));
+      animalList.add(new Starfish(mouseX, mouseY, w1, h1, 7, 20));
         }}
       if (TYPE == SALMON) {
         int w1 = 30;
