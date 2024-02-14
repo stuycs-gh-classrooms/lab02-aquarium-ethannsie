@@ -1,6 +1,6 @@
 class Salmon extends Animal {
-  Salmon(int x, int y, int sx, int sy, int r, int g, int b, int speed, int health) {
-    super(x, y, sx, sy, r, g, b, speed, health);
+  Salmon(int x, int y, int sx, int sy, int speed, int health) {
+    super(x, y, sx, sy, speed, health);
     img = loadImage("salmon.png");
   }
 

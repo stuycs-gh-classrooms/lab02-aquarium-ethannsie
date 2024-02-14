@@ -37,26 +37,27 @@ void setup() {
 void draw() {
   background(150);
   t.moveAnimals();
+  t.moveFood();
   t.aliveTimer();
   t.drainHealth();
   t.deathGeneral();
   t.display();
-  //try {
-  //if (t.animalList.get(0).hunger > 0) {
-  //println("Animal 0: " + t.animalList.get(0).hunger);
-  //println("Animal 1: " + t.animalList.get(1).timeAlive);
-  //}
-  //println("Animal 2: " + t.animalList.get(2).hunger);
-  //println("Animal 3: " + t.animalList.get(3).hunger);
+  try {
+  if (t.animalList.get(0).hunger > 0) {
+  println("Animal 0: " + t.animalList.get(0).hunger);
+  println("Animal 1: " + t.animalList.get(1).timeAlive);
+  }
+  println("Animal 2: " + t.animalList.get(2).hunger);
+  println("Animal 3: " + t.animalList.get(3).hunger);
 
-  //} catch (Exception IndexOutOfBoundsException) {
+  } catch (Exception IndexOutOfBoundsException) {
     
-  //}
+  }
 }
 
-//void mouseClicked() {
-//  t.addFish(mouseX, mouseY);
-//}
+void mouseClicked() {
+  t.addFood(mouseX, mouseY);
+}
 
 void keyPressed() {
   if (key == char(STARFISH)) {

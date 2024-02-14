@@ -1,5 +1,6 @@
 class Tank {
   ArrayList<Animal> animalList;
+  ArrayList<food> foodList;
   int tankX;
   int tankY;
   int tankW;
@@ -13,6 +14,7 @@ class Tank {
     this.tankH = tankH;
     this.floorH = floorH;
     animalList = new ArrayList<Animal>();
+    foodList = new ArrayList<food>();
   }
   
   Tank() {
@@ -23,13 +25,13 @@ class Tank {
        int w1 = 40;
        int h1 = 20;
        if (x >= tankX && x + w1 <= tankX + tankW && y >= tankY && y+h1 <= tankH) {
-      animalList.add(new fish(mouseX, mouseY, w1, h1, 255, 0, 255, 10, 10));
+      animalList.add(new fish(mouseX, mouseY, w1, h1, 10, 10));
     }}
      if (TYPE == CRAB) {
        int w1 = 30;
        int h1 = 30;
        if (x >= tankX && x + w1 <= tankX + tankW && y >= tankH && y+h1 <= height) {
-      animalList.add(new crab(mouseX, mouseY, w1, h1, 0, 0, 255, 2, 15));
+      animalList.add(new crab(mouseX, mouseY, w1, h1, 2, 15));
     }}
      if (TYPE == STARFISH) {
        int w1 = 50;
@@ -40,13 +42,21 @@ class Tank {
       if (TYPE == SALMON) {
         int w1 = 30;
         int h1 = 20;
-         if (x >= tankX && x + 40 <= tankX + tankW && y >= tankY && y+20 <= tankH) {
-      animalList.add(new Salmon(mouseX, mouseY, w1, h1, 23, 230, 54, 5, 10));
+         if (x >= tankX && x + w1 <= tankX + tankW && y >= tankY && y+h1 <= tankH) {
+      animalList.add(new Salmon(mouseX, mouseY, w1, h1, 5, 10));
     }
       }
    }
 
-
+  void addFood(int x, int y) {
+    int w1 = 10;
+    int h1 = 10;
+    if (x >= tankX && x + w1 <= tankX + tankW && y >= tankY && y+h1 <= tankH) {
+    foodList.add(new food(mouseX, mouseY, w1, h1, 0, 255, 0, 1));
+    }
+  }
+   
+   
   void display() {
     background(200);
     fill(0, 255, 255);
@@ -55,6 +65,9 @@ class Tank {
     rect(tankX, tankH, tankW, height-tankH);
     for (int i = 0; i < animalList.size(); i++) {
      animalList.get(i).display(); 
+    }
+    for (int i = 0; i < foodList.size(); i++) {
+     foodList.get(i).display(); 
     }
   }
   
@@ -69,7 +82,7 @@ class Tank {
   void aliveTimer() {
    for (int i = 0; i < animalList.size(); i++) {
     if (frameCount%150 == 0) {
-      println("hi");
+      println("hi: " + frameCount);
      animalList.get(i).timeAlive += 1; 
     }
    }
@@ -80,6 +93,13 @@ class Tank {
       animalList.get(i).move();
       animalList.get(i).collide(); 
     }
+  }
+  
+  void moveFood() {
+   for (int i = 0; i < foodList.size(); i++) {
+    foodList.get(i).move();
+    foodList.get(i).collide();
+   }
   }
   
   void deathGeneral() {

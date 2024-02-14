@@ -11,20 +11,23 @@ class Animal extends Tank{
   int speed;
   int hunger;
   int timeAlive;
+  int ALIVE;
+  int DEAD;
 
   
-  Animal(int ax, int ay, int w1, int h1, int r, int g, int b, int speed, int hunger) {
-    location = new PVector(ax, ay);
-    velocity = PVector.random2D();
-    this.w1 = w1;
-    this.h1 = h1;
-    this.speed = speed;
-    this.r = r;
-    this.g = g;
-    this.b = b;
-    inside = color(r, g, b);
-    this.hunger = hunger;
-  }
+  //Animal(int ax, int ay, int w1, int h1, int r, int g, int b, int speed, int hunger) {
+  //  location = new PVector(ax, ay);
+  //  velocity = PVector.random2D();
+  //  this.w1 = w1;
+  //  this.h1 = h1;
+  //  this.speed = speed;
+  //  this.r = r;
+  //  this.g = g;
+  //  this.b = b;
+  //  inside = color(r, g, b);
+  //  ALIVE = 1;
+  //  DEAD = 0;
+  //}
   
     Animal(int ax, int ay, int w1, int h1, int speed, int hunger) {
     location = new PVector(ax, ay);
@@ -33,6 +36,8 @@ class Animal extends Tank{
     this.h1 = h1;
     this.speed = speed;
     this.hunger = hunger;
+    ALIVE = 1;
+    DEAD = 0;
   }
   
    Animal(int ax, int ay) {
