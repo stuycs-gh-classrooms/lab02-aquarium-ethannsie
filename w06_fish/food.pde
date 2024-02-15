@@ -1,39 +1,26 @@
-class food {
-  PVector location;
-  PVector velocity;
-  int x;
-  int y;
-  int w1;
-  int h1;
-  color inside;
-  int speed;
-  
-  food(int x, int y, int sx, int sy, int r, int g, int b, int speed) {
-  location = new PVector(x, y);
-  velocity = PVector.random2D();
-  this.w1 = sx;
-  this.h1 = sy;
-  this.inside = color(r, g, b);
-  this.speed = speed;
+class food extends Animal {
+
+  food(int x, int y) {
+    super();
+    location = new PVector(x, y);
+    velocity = PVector.random2D();
+    w1 = 10;
+    h1 = 10;
+    speed = 8;
   }
   
-  void display() {
-    fill(inside);
-    rect(location.x, location.y, w1, h1);
-  }
-  
+  // OVERRIDE COLLIDE - controlled for its bounds
   void collide() {
-   location.add(velocity.x*speed, velocity.y*speed);
-   if (location.x < 0 || location.x+w1 > width) {
+   if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
-    }
-    if (location.y < 50 || location.y+h1 > height) { 
+    }if (!withinYBound(tankY, h1, tankH+floorH)) { 
       velocity.y *= -1;
     }
   }
   
-  void move() {
-    location.add(velocity.x*speed, velocity.y*speed);
+  // OVERRIDE CHECK FOR SPAWNING  
+  boolean boundCheck() {
+   return withinXBound(0, w1, tankW) && withinYBound(tankY, h1, tankH); 
   }
   
   

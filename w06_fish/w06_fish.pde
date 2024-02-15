@@ -8,6 +8,7 @@ int STARFISH;
 int FISH;
 int CRAB;
 int SALMON;
+int FOOD;
 PImage imgStarfish;
 PImage imgSalmon;
 PImage imgFish;
@@ -23,6 +24,7 @@ void setup() {
    tankX = 0;
    tankY = 50;
    floorH = 100;
+   FOOD = 1;
    STARFISH = 49;
    FISH = 50;
    CRAB = 51;
@@ -37,7 +39,6 @@ void setup() {
 void draw() {
   background(150);
   t.moveAnimals();
-  t.moveFood();
   //t.aliveTimer();
   //t.drainHealth();
   //t.deathGeneral();
@@ -56,7 +57,7 @@ void draw() {
 }
 
 void mouseClicked() {
-  t.addFood(mouseX, mouseY);
+  t.addAnimal(mouseX, mouseY, FOOD);
 }
 
 void keyPressed() {

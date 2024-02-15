@@ -24,7 +24,7 @@ class Salmon extends Animal {
    return withinXBound(0, w1, tankW) && withinYBound(tankY, h1, tankH); 
   }
   
-  // OVERRIDE DISPLAY PER PNG IMAGE
+  // OVERRIDE FOR DISPLAY PNG
   void display() {
     image(imgSalmon, location.x, location.y, w1, h1);
     

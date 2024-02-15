@@ -27,19 +27,13 @@ class Tank {
       animalList.add(new Starfish(x, y));
        } else if (TYPE == SALMON) {
       animalList.add(new Salmon(x, y));
+      } else if (TYPE == FOOD) {
+      animalList.add(new food(x, y));
       }
      if (!animalList.get(animalList.size()-1).boundCheck()) {
        animalList.remove(animalList.size()-1);
      }
    }
-
-  void addFood(int x, int y) {
-    int w1 = 10;
-    int h1 = 10;
-    if (x >= tankX && x + w1 <= tankX + tankW && y >= tankY && y+h1 <= tankH) {
-    foodList.add(new food(mouseX, mouseY, w1, h1, 0, 255, 0, 1));
-    }
-  }
    
    void moveAnimals() {
     for (int i = 0; i < animalList.size(); i++) {
@@ -47,12 +41,7 @@ class Tank {
       animalList.get(i).collide(); 
     }
   }
-  
-  void moveFood() {
-   for (int i = 0; i < foodList.size(); i++) {
-    foodList.get(i).move();
-    foodList.get(i).collide();
-   }}
+
    
   void display() {
     background(200);

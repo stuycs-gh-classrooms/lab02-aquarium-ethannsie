@@ -68,7 +68,8 @@ class Animal{
   
   // defaulted to a rectangle display
   void display() {
-   rect(10, 10, 10, 10); 
+   fill(0, 255, 0);
+   rect(location.x, location.y, w1, h1); 
   }
   
   // defaulted in superclass
