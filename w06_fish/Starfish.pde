@@ -1,17 +1,11 @@
 class Starfish extends Animal {
-  PVector location;
-  PVector velocity;
   int w1;
   int h1;
-  int speed;
-  int health;
   
    Starfish(int x, int y) {
     super();
-    location = new PVector();
+    location = new PVector(x, y);
     velocity = PVector.random2D();
-    this.location.x = x;
-    this.location.y = y;
     w1 = 50;
     h1 = 40;
     speed = 3;
@@ -19,32 +13,18 @@ class Starfish extends Animal {
   }
   
    void collide() {
-   if (!withinXBound()) {
+   if (!withinXBound(0, w1, t.tankW)) {
       velocity.x *= -1;
     }
-    if (!withinYBound()) { 
+    if (!withinYBound(t.tankH, h1, t.tankH + t.floorH)) { 
       velocity.y *= -1;
     }
   }
   
-    boolean withinXBound() {
-    if (location.x > 0 && location.x+this.w1 < t.tankW) {
-     return true; 
-    }
-    return false;
-  }
-  
-  boolean withinYBound() {
-    if (location.y > t.tankH && location.y+this.h1 < t.tankH + t.floorH) { 
-      return true;
-    }
-    return false;
-  }
-  
   boolean boundCheck() {
-   return withinXBound() && withinYBound(); 
+   return withinXBound(0, w1, t.tankW) && withinYBound(t.tankH, h1, t.tankH + t.floorH); 
   }
-    
+  
   void display() {
     if (boundCheck()) {
     image(imgStarfish, location.x, location.y, w1, h1);

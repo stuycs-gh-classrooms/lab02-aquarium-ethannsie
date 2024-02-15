@@ -40,6 +40,18 @@ class Tank {
     }
   }
    
+    void moveAnimals() {
+    for (int i = 0; i < animalList.size(); i++) {
+      animalList.get(i).move();
+      animalList.get(i).collide(); 
+    }
+  }
+  
+  void moveFood() {
+   for (int i = 0; i < foodList.size(); i++) {
+    foodList.get(i).move();
+    foodList.get(i).collide();
+   }}
    
   void display() {
     background(200);
@@ -48,9 +60,11 @@ class Tank {
     fill(194, 178, 128);
     rect(tankX, tankH, tankW, height-tankH);
     for (int i = 0; i < animalList.size(); i++) {
+     animalList.get(i).move();
      animalList.get(i).display(); 
     }
     for (int i = 0; i < foodList.size(); i++) {
+     foodList.get(i).move();
      foodList.get(i).display(); 
     }
   }

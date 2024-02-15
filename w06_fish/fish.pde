@@ -1,13 +1,11 @@
 class fish extends Animal{
-  PVector location;
   int w1;
-  PVector velocity;
   int h1;
   int speed;
   int health;
   
    fish(int x, int y) {
-    super();
+    super(x, y);
     location = new PVector();
     this.location.x = x;
     velocity = PVector.random2D();

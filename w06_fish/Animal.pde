@@ -2,14 +2,8 @@ class Animal extends Tank{
   PVector location;
   PVector velocity;
   PImage img;
-  int r;
-  int g;
-  int b;
-  int w1;
-  int h1;
-  color inside;
   int speed;
-  int hunger;
+  int health;
   int timeAlive;
   int ALIVE;
   int DEAD;
@@ -29,25 +23,9 @@ class Animal extends Tank{
   //  DEAD = 0;
   //}
   
-    Animal(int ax, int ay, int w1, int h1, int speed, int hunger) {
-    location = new PVector(ax, ay);
-    velocity = PVector.random2D();
-    this.w1 = w1;
-    this.h1 = h1;
-    this.speed = speed;
-    this.hunger = hunger;
-    ALIVE = 1;
-    DEAD = 0;
-  }
+   Animal() {
+}
   
-   Animal(int ax, int ay) {
-    location = new PVector(ax, ay);
-    velocity = PVector.random2D();
-    //this.speed = speed;
-  }
-  
-  Animal() {
-  }
   
   void collide() {
    location.add(velocity.x*speed, velocity.y*speed);
@@ -60,24 +38,11 @@ class Animal extends Tank{
   }
   
   void move() {
-    try {
     location.add(velocity.x*speed, velocity.y*speed);
-    } catch (Exception NullPointerException) { 
-    }
+    //println(location);
   }
   
-  void moveAnimals() {
-    for (int i = 0; i < animalList.size(); i++) {
-      animalList.get(i).move();
-      animalList.get(i).collide(); 
-    }
-  }
-  
-  void moveFood() {
-   for (int i = 0; i < foodList.size(); i++) {
-    foodList.get(i).move();
-    foodList.get(i).collide();
-   }}
+
   
   //void deathGeneral() {
   // for (int i = 0; i < animalList.size(); i++) {
@@ -86,5 +51,21 @@ class Animal extends Tank{
   //     }
   // } 
   //}
+  
+    boolean withinXBound(int lowX, int w1, int highX) {
+    if (location.x > lowX && location.x+w1 < highX) {
+     return true; 
+    }
+    return false;
+  }
+  
+  boolean withinYBound(int lowY, int h1, int highY) {
+    if (location.y > lowY && location.y+h1 < highY) { 
+      return true;
+    }
+    return false;
+  }
+  
+
   
   }

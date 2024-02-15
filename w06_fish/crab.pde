@@ -1,17 +1,12 @@
 class crab extends Animal {
-  PVector location;
   int w1;
   int h1;
-  int speed;
-  PVector velocity;
-  int health;
+
   
    crab(int x, int y) {
     super();
     location = new PVector();
     velocity = PVector.random2D();
-    this.location.x = x;
-    this.location.y = y;
     w1 = 15;
     h1 = 15;
     speed = 3;
@@ -35,7 +30,7 @@ class crab extends Animal {
   }
   
   boolean withinYBound() {
-    if (location.y > t.tankH && location.y < t.tankH + t.floorH) { 
+    if (location.y > t.tankH && location.y+h1 < t.tankH + t.floorH) { 
       return true;
     }
     return false;
