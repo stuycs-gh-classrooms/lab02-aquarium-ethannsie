@@ -1,6 +1,5 @@
 class Tank {
   ArrayList<Animal> animalList;
-  ArrayList<food> foodList;
   int tankX;
   int tankY;
   int tankW;
@@ -14,10 +13,8 @@ class Tank {
     this.tankH = tankH;
     this.floorH = floorH;
     animalList = new ArrayList<Animal>();
-    foodList = new ArrayList<food>();
   }
   
-  // is this more information than tank should have?
    void addAnimal(int x, int y, int TYPE) {
      if (TYPE == FISH) {
       animalList.add(new fish(x, y));
@@ -51,9 +48,6 @@ class Tank {
     rect(tankX, tankH, tankW, height-tankH);
     for (int i = 0; i < animalList.size(); i++) {
      animalList.get(i).display(); 
-    }
-    for (int i = 0; i < foodList.size(); i++) {
-     foodList.get(i).display(); 
     }
   }
   
