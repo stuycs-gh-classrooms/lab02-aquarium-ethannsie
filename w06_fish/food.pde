@@ -1,4 +1,4 @@
-class food extends Tank {
+class food {
   PVector location;
   PVector velocity;
   int x;

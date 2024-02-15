@@ -1,10 +1,12 @@
-class Animal extends Tank{
+class Animal{
   PVector location;
   PVector velocity;
   PImage img;
   int speed;
   int health;
   int timeAlive;
+  int w1;
+  int h1;
   int ALIVE;
   int DEAD;
 
@@ -26,22 +28,19 @@ class Animal extends Tank{
    Animal() {
 }
   
-  
+  // defaulted to within the tank
   void collide() {
-   location.add(velocity.x*speed, velocity.y*speed);
-   //if (location.x < 0 || location.x+w1 > width) {
-   //   velocity.x *= -1;
-   // }
-   // if (location.y < 50 || location.y+h1 > height-h1) { 
-   //   velocity.y *= -1;
-   // }
+   if (!withinXBound(0, w1, width)) {
+      velocity.x *= -1;
+    }
+    if (!withinYBound(tankY, h1, height)) { 
+      velocity.y *= -1;
+    }
   }
   
   void move() {
     location.add(velocity.x*speed, velocity.y*speed);
-    //println(location);
   }
-  
 
   
   //void deathGeneral() {
@@ -52,7 +51,8 @@ class Animal extends Tank{
   // } 
   //}
   
-    boolean withinXBound(int lowX, int w1, int highX) {
+  // checks whether each animal is within their own specified boundaries
+  boolean withinXBound(int lowX, int w1, int highX) {
     if (location.x > lowX && location.x+w1 < highX) {
      return true; 
     }
@@ -66,6 +66,14 @@ class Animal extends Tank{
     return false;
   }
   
-
+  // defaulted to a rectangle display
+  void display() {
+   rect(10, 10, 10, 10); 
+  }
+  
+  // defaulted in superclass
+  boolean boundCheck() {
+   return withinXBound(0, w1, tankW) && withinYBound(tankH, h1, tankH + floorH); 
+  }
   
   }

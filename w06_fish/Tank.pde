@@ -17,9 +17,7 @@ class Tank {
     foodList = new ArrayList<food>();
   }
   
-  Tank() {
-  }
-  
+  // is this more information than tank should have?
    void addAnimal(int x, int y, int TYPE) {
      if (TYPE == FISH) {
       animalList.add(new fish(x, y));
@@ -30,6 +28,9 @@ class Tank {
        } else if (TYPE == SALMON) {
       animalList.add(new Salmon(x, y));
       }
+     if (!animalList.get(animalList.size()-1).boundCheck()) {
+       animalList.remove(animalList.size()-1);
+     }
    }
 
   void addFood(int x, int y) {
@@ -40,7 +41,7 @@ class Tank {
     }
   }
    
-    void moveAnimals() {
+   void moveAnimals() {
     for (int i = 0; i < animalList.size(); i++) {
       animalList.get(i).move();
       animalList.get(i).collide(); 
@@ -60,16 +61,13 @@ class Tank {
     fill(194, 178, 128);
     rect(tankX, tankH, tankW, height-tankH);
     for (int i = 0; i < animalList.size(); i++) {
-     animalList.get(i).move();
      animalList.get(i).display(); 
     }
     for (int i = 0; i < foodList.size(); i++) {
-     foodList.get(i).move();
      foodList.get(i).display(); 
     }
   }
   
-   
   //void drainHealth() {
   //   for (int i = 0; i < animalList.size(); i++) {
   //     if (animalList.get(i).timeAlive%5 == 0 && animalList.get(i).hunger > 0) {

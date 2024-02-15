@@ -1,54 +1,33 @@
 class Salmon extends Animal {
-  PVector location;
-  int w1;
-  int h1;
-  PVector velocity;
-  int speed;
-  int health;
-  
+
    Salmon(int x, int y) {
     super();
-    location = new PVector();
+    location = new PVector(x, y);
     velocity = PVector.random2D();
-    this.location.x = x;
-    this.location.y = y;
     w1 = 30;
-    h1 = 25;
-    speed = 3;
-    health = 5;
+    h1 = 20;
+    speed = 6;
+    health = 20;
   }
 
+  // OVERRIDE COLLIDE - controlled for its bounds
   void collide() {
-   if (!withinXBound()) {
+   if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
-    }
-    if (!withinYBound()) { 
+    }if (!withinYBound(tankY, h1, tankH)) { 
       velocity.y *= -1;
     }
   }
   
-    boolean withinXBound() {
-    if (location.x > 0 && location.x+w1 < t.tankW) {
-     return true; 
-    }
-    return false;
-  }
-  
-  boolean withinYBound() {
-    if (location.y > 50 && location.y+h1 < t.tankH) { 
-      return true;
-    }
-    return false;
-  }
-  
+  // OVERRIDE CHECK FOR SPAWNING
   boolean boundCheck() {
-   return withinXBound() && withinYBound(); 
-  }
-    
-  void display() {
-    if (boundCheck()) {
-    image(imgSalmon, location.x, location.y, w1, h1);
-    }
+   return withinXBound(0, w1, tankW) && withinYBound(tankY, h1, tankH); 
   }
   
+  // OVERRIDE DISPLAY PER PNG IMAGE
+  void display() {
+    image(imgSalmon, location.x, location.y, w1, h1);
+    
+  }
+
 }

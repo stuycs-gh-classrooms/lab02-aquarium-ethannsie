@@ -1,7 +1,5 @@
 class Starfish extends Animal {
-  int w1;
-  int h1;
-  
+
    Starfish(int x, int y) {
     super();
     location = new PVector(x, y);
@@ -12,23 +10,24 @@ class Starfish extends Animal {
     health = 5;
   }
   
+   // OVERRIDE COLLIDE - controlled for its bounds
    void collide() {
-   if (!withinXBound(0, w1, t.tankW)) {
+   if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
     }
-    if (!withinYBound(t.tankH, h1, t.tankH + t.floorH)) { 
+    if (!withinYBound(tankH, h1, tankH + floorH)) { 
       velocity.y *= -1;
     }
   }
   
+  // OVERRIED CHECK FOR SPAWNING
   boolean boundCheck() {
-   return withinXBound(0, w1, t.tankW) && withinYBound(t.tankH, h1, t.tankH + t.floorH); 
+   return withinXBound(0, w1, tankW) && withinYBound(tankH, h1, tankH + floorH); 
   }
   
+  // OVERRIDE TO USE PNG
   void display() {
-    if (boundCheck()) {
     image(imgStarfish, location.x, location.y, w1, h1);
-    }
   }
   
 }

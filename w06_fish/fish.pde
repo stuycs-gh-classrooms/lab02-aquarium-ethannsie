@@ -1,51 +1,33 @@
 class fish extends Animal{
-  int w1;
-  int h1;
-  int speed;
-  int health;
   
    fish(int x, int y) {
-    super(x, y);
-    location = new PVector();
-    this.location.x = x;
+    super();
+    location = new PVector(x, y);
     velocity = PVector.random2D();
-    this.location.y = y;
     w1 = 20;
-    h1 = 20;
-    speed = 6;
+    h1 = 10;
+    speed = 8;
     health = 7;
   }
   
+  // OVERRIDE COLLIDE - controlled for its bounds
   void collide() {
-   if (!withinXBound()) {
+   if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
-    }if (!withinYBound()) { 
+    }if (!withinYBound(tankY, h1, tankH)) { 
       velocity.y *= -1;
     }
   }
   
-  boolean withinXBound() {
-    if (location.x > 0 && location.x+w1 < t.tankW) {
-     return true; 
-    }
-    return false;
-  }
-  
-  boolean withinYBound() {
-    if (location.y > 50 && location.y+h1 < t.tankH) { 
-      return true;
-    }
-    return false;
-  }
-  
+  // OVERRIDE CHECK FOR SPAWNING  
   boolean boundCheck() {
-   return withinXBound() && withinYBound(); 
+   return withinXBound(0, w1, tankW) && withinYBound(tankY, h1, tankH); 
   }
-    
+  
+  // OVERRIDE FOR EACH IMAGE
   void display() {
-    if (boundCheck()) {
     image(imgFish, location.x, location.y, w1, h1);
-    }
+    
   }
   
 }
