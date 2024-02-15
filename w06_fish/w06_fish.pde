@@ -28,7 +28,7 @@ void setup() {
    CRAB = 51;
    SALMON = 52;
   tankW = width;
-  tankH = height - 100;
+  tankH = height - floorH;
   t = new Tank(tankX, tankY, tankW, tankH, floorH);
   t.display();
 }//setup
@@ -42,17 +42,17 @@ void draw() {
   //t.drainHealth();
   //t.deathGeneral();
   t.display();
-  try {
-  if (t.animalList.get(0).hunger > 0) {
-  println("Animal 0: " + t.animalList.get(0).hunger);
-  println("Animal 1: " + t.animalList.get(1).timeAlive);
-  }
-  println("Animal 2: " + t.animalList.get(2).hunger);
-  println("Animal 3: " + t.animalList.get(3).hunger);
+  //try {
+  //if (t.animalList.get(0).hunger > 0) {
+  //println("Animal 0: " + t.animalList.get(0).hunger);
+  //println("Animal 1: " + t.animalList.get(1).timeAlive);
+  //}
+  //println("Animal 2: " + t.animalList.get(2).hunger);
+  //println("Animal 3: " + t.animalList.get(3).hunger);
 
-  } catch (Exception IndexOutOfBoundsException) {
+  //} catch (Exception IndexOutOfBoundsException) {
     
-  }
+  //}
 }
 
 void mouseClicked() {

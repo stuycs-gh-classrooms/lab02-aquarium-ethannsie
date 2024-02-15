@@ -36,4 +36,5 @@ class food extends Tank {
     location.add(velocity.x*speed, velocity.y*speed);
   }
   
+  
 }
