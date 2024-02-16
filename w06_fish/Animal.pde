@@ -80,7 +80,6 @@ class Animal{
   // Every 5 seconds, life is drained from the animal
   void drainHealth() {
     int m = millis();
-    println(m);
     if (millis() - lastDrainTime >= 5000 && health >= 0) {
        health = health - 1; 
        lastDrainTime = m;
