@@ -23,7 +23,7 @@ class food extends Animal {
   
   // OVERRIDE CHECK FOR SPAWNING  
   boolean boundCheck() {
-   return withinXBound(0, w1, tankW) && withinYBound(tankY, h1, tankH); 
+   return withinXBound(0, w1, tankW) && withinYBound(tankY, h1, floorH + tankH); 
   }
   
   

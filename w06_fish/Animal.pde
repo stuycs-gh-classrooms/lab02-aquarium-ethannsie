@@ -6,27 +6,15 @@ class Animal{
   int health;
   int w1;
   int h1;
+  int area;
   int lastDrainTime = millis();
   boolean ALIVE;
-  int index;
-
-  
-  //Animal(int ax, int ay, int w1, int h1, int r, int g, int b, int speed, int hunger) {
-  //  location = new PVector(ax, ay);
-  //  velocity = PVector.random2D();
-  //  this.w1 = w1;
-  //  this.h1 = h1;
-  //  this.speed = speed;
-  //  this.r = r;
-  //  this.g = g;
-  //  this.b = b;
-  //  inside = color(r, g, b);
-  //  ALIVE = 1;
-  //  DEAD = 0;
-  //}
+  boolean DISPLAY;
   
    Animal() {
      ALIVE = true;
+     area = w1*h1;
+     DISPLAY = true;
 }
   
   // defaulted to within the tank

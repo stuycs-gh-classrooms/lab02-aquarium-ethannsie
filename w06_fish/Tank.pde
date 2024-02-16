@@ -29,20 +29,34 @@ class Tank {
       }
      if (!animalList.get(animalList.size()-1).boundCheck()) {
        animalList.remove(animalList.size()-1);
-     } else {
-       animalList.get(animalList.size()-1).index = animalList.size()-1; 
      }
    }
    
-   void collision() {
-    for (int i = 0; i < animalList.size()-1; i++) {
-      for (int j = i; j < animalList.size(); j++) {
-       if (animalList.get(i).objectCollide(animalList.get(j))) {
-         
-       }
-      }
+void collision() {
+    ArrayList<Animal> toBeRemoved = new ArrayList<>();
+    
+    for (int i = 0; i < animalList.size() - 1; i++) {
+        for (int j = i + 1; j < animalList.size(); j++) {
+            Animal a1 = animalList.get(i);
+            Animal a2 = animalList.get(j);
+            if (a1.objectCollide(a2)) {
+                if (a1 instanceof food) {
+                    a1.DISPLAY = false;
+                    toBeRemoved.add(a1);
+                    a2.health += 5; 
+                }
+                if (a2 instanceof food) {
+                    a2.DISPLAY = false;
+                    toBeRemoved.add(a2);
+                    a1.health += 5;
+                }
+            }
+        }
     }
-   }
+    
+      animalList.removeAll(toBeRemoved);
+}
+
    
    void updateAnimals() {
     for (int i = 0; i < animalList.size(); i++) {
@@ -50,6 +64,7 @@ class Tank {
       animalList.get(i).drainHealth();
       animalList.get(i).death();
       animalList.get(i).wallCollide(); 
+      collision();
     }
   }
 
@@ -60,7 +75,9 @@ class Tank {
     fill(194, 178, 128);
     rect(tankX, tankH, tankW, height-tankH);
     for (int i = 0; i < animalList.size(); i++) {
+      if (animalList.get(i).DISPLAY) {
      animalList.get(i).display(); 
+      }
     }
   }
   

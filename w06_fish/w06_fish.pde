@@ -41,21 +41,7 @@ void setup() {
 void draw() {
   background(150);
   t.updateAnimals();
-  //t.aliveTimer();
-  //t.drainHealth();
-  //t.deathGeneral();
   t.display();
-  //try {
-  //if (t.animalList.get(0).hunger > 0) {
-  //println("Animal 0: " + t.animalList.get(0).hunger);
-  //println("Animal 1: " + t.animalList.get(1).timeAlive);
-  //}
-  //println("Animal 2: " + t.animalList.get(2).hunger);
-  //println("Animal 3: " + t.animalList.get(3).hunger);
-
-  //} catch (Exception IndexOutOfBoundsException) {
-    
-  //}
 }
 
 void mouseClicked() {
@@ -71,6 +57,8 @@ void keyPressed() {
     t.addAnimal(mouseX, mouseY, CRAB); 
   } else if (key == char(SALMON)) {
    t.addAnimal(mouseX, mouseY, SALMON); 
+  } else if (key == char(FOOD + SALMON)) {
+    t.addAnimal(mouseX, mouseY, FOOD);
   }
   }
  
