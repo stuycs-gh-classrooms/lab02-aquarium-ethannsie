@@ -8,6 +8,7 @@ class Animal{
   int h1;
   int lastDrainTime = millis();
   boolean ALIVE;
+  int index;
 
   
   //Animal(int ax, int ay, int w1, int h1, int r, int g, int b, int speed, int hunger) {
@@ -37,6 +38,14 @@ class Animal{
       velocity.y *= -1;
     }
   }
+  
+  boolean objectCollide(Animal other) {
+    return this.location.y < other.location.y + other.h1 
+    && this.location.y + this.h1 > other.location.y 
+    && this.location.x < other.location.x + other.w1 
+    && this.location.x + this.w1 > other.location.x;
+  }
+  
   
   void move() {
     location.add(velocity.x*speed, velocity.y*speed);

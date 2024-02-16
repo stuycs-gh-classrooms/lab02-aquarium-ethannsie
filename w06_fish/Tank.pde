@@ -29,7 +29,19 @@ class Tank {
       }
      if (!animalList.get(animalList.size()-1).boundCheck()) {
        animalList.remove(animalList.size()-1);
+     } else {
+       animalList.get(animalList.size()-1).index = animalList.size()-1; 
      }
+   }
+   
+   void collision() {
+    for (int i = 0; i < animalList.size()-1; i++) {
+      for (int j = i; j < animalList.size(); j++) {
+       if (animalList.get(i).objectCollide(animalList.get(j))) {
+         
+       }
+      }
+    }
    }
    
    void updateAnimals() {
