@@ -10,6 +10,10 @@ class Animal{
   int lastDrainTime = millis();
   boolean ALIVE;
   boolean DISPLAY;
+  PImage imgStarfish;
+  PImage imgSalmon;
+  PImage imgFish;
+  PImage imgCrab; 
   
    Animal() {
      ALIVE = true;

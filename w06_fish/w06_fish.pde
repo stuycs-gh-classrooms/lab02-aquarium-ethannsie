@@ -9,19 +9,11 @@ int FISH;
 int CRAB;
 int SALMON;
 int FOOD;
-PImage imgStarfish;
-PImage imgSalmon;
-PImage imgFish;
-PImage imgCrab; 
+
 
 void setup() {
   size(600, 600);
-  frameRate(60);
-  // Image loading
-  imgStarfish = loadImage("Starfish.png");
-  imgSalmon = loadImage("salmon.png");
-  imgFish = loadImage("fish.png");
-  imgCrab = loadImage("crab.png"); 
+  frameRate(60);  
   // Tank Parameters
   tankX = 0;
   tankY = 50; 

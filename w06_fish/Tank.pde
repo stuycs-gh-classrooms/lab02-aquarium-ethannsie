@@ -39,6 +39,9 @@ void collision() {
         for (int j = i + 1; j < animalList.size(); j++) {
             Animal a1 = animalList.get(i);
             Animal a2 = animalList.get(j);
+            if ((!a1.ALIVE || !a2.ALIVE) || (a1 instanceof food && a2 instanceof food)) {
+             continue; 
+            }
             if (a1.objectCollide(a2)) {
                 if (a1 instanceof food) {
                     a1.DISPLAY = false;

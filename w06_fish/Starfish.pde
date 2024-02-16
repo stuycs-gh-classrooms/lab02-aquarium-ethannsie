@@ -3,6 +3,7 @@ class Starfish extends Animal {
    Starfish(int x, int y) {
     super();
     location = new PVector(x, y);
+    imgStarfish = loadImage("Starfish.png");
     velocity = PVector.random2D();
     w1 = 50;
     h1 = 40;

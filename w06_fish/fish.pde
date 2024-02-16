@@ -3,6 +3,7 @@ class fish extends Animal{
    fish(int x, int y) {
     super();
     location = new PVector(x, y);
+    imgFish = loadImage("fish.png");
     velocity = PVector.random2D();
     w1 = 20;
     h1 = 10;

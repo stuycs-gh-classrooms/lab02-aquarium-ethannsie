@@ -3,6 +3,7 @@ class crab extends Animal {
    crab(int x, int y) {
     super();
     location = new PVector(x, y);
+    imgCrab = loadImage("crab.png"); 
     velocity = PVector.random2D();
     w1 = 30;
     h1 = 30;
