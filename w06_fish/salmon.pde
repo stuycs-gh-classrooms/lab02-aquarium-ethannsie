@@ -31,7 +31,7 @@ class Salmon extends Animal {
        imgSalmon = loadImage("deadsalmon.png");
        velocity = new PVector(0, -1, 0);
        speed = 1;
-       ALIVE = !ALIVE;
+       ALIVE = false;
        }
   }
   

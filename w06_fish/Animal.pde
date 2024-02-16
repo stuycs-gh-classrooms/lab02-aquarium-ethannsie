@@ -47,7 +47,7 @@ class Animal{
   void death() {
      if (health == 0) {
         speed = 0;
-        ALIVE = !ALIVE;
+        ALIVE = false;
        }
   }
   
