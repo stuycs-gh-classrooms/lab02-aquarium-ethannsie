@@ -11,7 +11,7 @@ class Starfish extends Animal {
   }
   
    // OVERRIDE COLLIDE - controlled for its bounds
-   void collide() {
+   void wallCollide() {
    if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
     }

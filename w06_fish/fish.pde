@@ -7,11 +7,11 @@ class fish extends Animal{
     w1 = 20;
     h1 = 10;
     speed = 8;
-    health = 7;
+    health = 6;
   }
   
   // OVERRIDE COLLIDE - controlled for its bounds
-  void collide() {
+  void wallCollide() {
    if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
     }if (!withinYBound(tankY, h1, tankH)) { 

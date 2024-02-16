@@ -7,11 +7,11 @@ class Salmon extends Animal {
     w1 = 30;
     h1 = 20;
     speed = 6;
-    health = 20;
+    health = 2;
   }
 
   // OVERRIDE COLLIDE - controlled for its bounds
-  void collide() {
+  void wallCollide() {
    if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
     }if (!withinYBound(tankY, h1, tankH)) { 

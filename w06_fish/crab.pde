@@ -7,11 +7,11 @@ class crab extends Animal {
     w1 = 30;
     h1 = 30;
     speed = 6;
-    health = 15;
+    health = 10;
   }
   
     // OVERRIDE COLLIDE - controlled for its bounds
-   void collide() {
+   void wallCollide() {
    if (!withinXBound(0, w1, tankW)) {
       velocity.x *= -1;
     }

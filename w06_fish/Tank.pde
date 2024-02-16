@@ -32,14 +32,15 @@ class Tank {
      }
    }
    
-   void moveAnimals() {
+   void updateAnimals() {
     for (int i = 0; i < animalList.size(); i++) {
       animalList.get(i).move();
-      animalList.get(i).collide(); 
+      animalList.get(i).drainHealth();
+      animalList.get(i).death();
+      animalList.get(i).wallCollide(); 
     }
   }
 
-   
   void display() {
     background(200);
     fill(0, 255, 255);
@@ -51,22 +52,7 @@ class Tank {
     }
   }
   
-  //void drainHealth() {
-  //   for (int i = 0; i < animalList.size(); i++) {
-  //     if (animalList.get(i).timeAlive%5 == 0 && animalList.get(i).hunger > 0) {
-  //     animalList.get(i).hunger -= 1; 
-  //     }
-  //   }
-  //}
-  
-  //void aliveTimer() {
-  // for (int i = 0; i < animalList.size(); i++) {
-  //  if (frameCount%150 == 0) {
-  //    println("hi: " + frameCount);
-  //   animalList.get(i).timeAlive += 1; 
-  //  }
-  // }
-  //}
+
   
 
   

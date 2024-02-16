@@ -17,18 +17,18 @@ PImage imgCrab;
 void setup() {
   size(600, 600);
   imgStarfish = loadImage("Starfish.png");
-   imgSalmon = loadImage("salmon.png");
-   imgFish = loadImage("fish.png");
-   imgCrab = loadImage("crab.png"); 
-   frameRate(30);
-   tankX = 0;
-   tankY = 50;
-   floorH = 100;
-   FOOD = 1;
-   STARFISH = 49;
-   FISH = 50;
-   CRAB = 51;
-   SALMON = 52;
+  imgSalmon = loadImage("salmon.png");
+  imgFish = loadImage("fish.png");
+  imgCrab = loadImage("crab.png"); 
+  frameRate(100);
+  tankX = 0;
+  tankY = 50; 
+  floorH = 100;
+  FOOD = 1;
+  STARFISH = 49;
+  FISH = 50;
+  CRAB = 51;
+  SALMON = 52;
   tankW = width;
   tankH = height - floorH;
   t = new Tank(tankX, tankY, tankW, tankH, floorH);
@@ -38,7 +38,7 @@ void setup() {
 
 void draw() {
   background(150);
-  t.moveAnimals();
+  t.updateAnimals();
   //t.aliveTimer();
   //t.drainHealth();
   //t.deathGeneral();
@@ -71,4 +71,4 @@ void keyPressed() {
    t.addAnimal(mouseX, mouseY, SALMON); 
   }
   }
-  
+ 
